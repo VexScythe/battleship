@@ -57,12 +57,12 @@ export function createGameboard() {
   }
 
   function placeShipAi(ship) {
-    let orientation = Math.random() < 0.5 ? 'horizontal' : 'vertical';
+    let aiOrientation = Math.random() < 0.5 ? 'horizontal' : 'vertical';
     let row, col;
-    if (orientation === 'horizontal') {
+    if (aiOrientation === 'horizontal') {
       row = Math.floor(Math.random() * boardSize);
       col = Math.floor(Math.random() * (boardSize - ship.getShipHP() + 1));
-    } else if (orientation === 'vertical') {
+    } else if (aiOrientation === 'vertical') {
       row = Math.floor(Math.random() * (boardSize - ship.getShipHP() + 1));
       col = Math.floor(Math.random() * boardSize);
     }

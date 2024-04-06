@@ -1,25 +1,28 @@
 import './style.css';
 import { createShip } from './ship';
 import { createGameboard } from './gameboard';
-import { createPlayer } from './player';
+import { createGameUI } from './gameUI';
 
-const player = createPlayer();
+const ui = createGameUI();
+const compui = createGameUI();
 
 const ship = createShip(6);
 const ship2 = createShip(3);
 const ship3 = createShip(2);
 
 const playerBoard = createGameboard();
+ui.renderPlayerBoard(playerBoard.board);
 const computerBoard = createGameboard();
 
 playerBoard.placeShip(ship, 0, 0);
 playerBoard.placeShip(ship2, 1, 0);
 console.log(playerBoard);
-console.log(playerBoard.board);
+ui.renderPlayerBoard(playerBoard.board);
 
 computerBoard.placeShipAi(ship, 0, 0);
 computerBoard.placeShipAi(ship2, 1, 0);
 console.log(computerBoard.board);
+ui.renderComputerBoard(computerBoard.board);
 
 /* playerBoard.placeShip(ship3 ,7 ,0 , true)
 
