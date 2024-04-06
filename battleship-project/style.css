@@ -1,0 +1,70 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --background-color: #44403c;
+  --ship-color: #10b981;
+}
+
+.ship__container{
+  width: 500px;
+  height: 80px;
+  margin: 30px 0;
+  background-color: var(--background-color);
+  display: flex;
+  align-items: center;
+}
+
+.carrier{
+  background-color: var(--ship-color);
+}
+
+.carrier__preview{
+  width: 50px;
+  height: 10px;
+  margin: 3px;
+}
+
+.battleship{
+  background-color: var(--ship-color);
+}
+
+.battleship__preview{
+  width: 40px;
+  height: 10px;
+  margin: 3px
+}
+
+.cruiser{
+  background-color: var(--ship-color);
+}
+
+.cruiser__preview{
+  width: 30px;
+  height: 10px;
+  margin: 3px;
+}
+
+.submarine{
+  background-color: var(--ship-color);
+}
+
+.submarine__preview{
+  width: 30px;
+  height: 10px;
+  margin: 3px;
+}
+
+.destroyer{
+  background-color: var(--ship-color);
+}
+
+.destroyer__preview{
+  width: 20px;
+  height: 10px;
+  margin: 3px;
+}
+
