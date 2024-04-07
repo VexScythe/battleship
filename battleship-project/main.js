@@ -2,28 +2,10 @@ import './style.css';
 import { createShip } from './ship';
 import { createGameboard } from './gameboard';
 import { createGameUI } from './gameUI';
+import { createGameStatus } from './gameStatus';
 
-const ui = createGameUI();
-const compui = createGameUI();
-
-const ship = createShip(6);
-const ship2 = createShip(3);
-const ship3 = createShip(2);
-
-const playerBoard = createGameboard();
-ui.renderPlayerBoard(playerBoard.board);
-const computerBoard = createGameboard();
-
-playerBoard.placeShip(ship, 0, 0);
-playerBoard.placeShip(ship2, 1, 0);
-console.log(playerBoard);
-ui.renderPlayerBoard(playerBoard.board);
-
-computerBoard.placeShipAi(ship, 0, 0);
-computerBoard.placeShipAi(ship2, 1, 0);
-console.log(computerBoard.board);
-ui.renderComputerBoard(computerBoard.board);
-
+const initGame = createGameStatus();
+initGame.computerRandomPlacer();
 /* playerBoard.placeShip(ship3 ,7 ,0 , true)
 
 playerBoard.receiveAttack(7, 0);
@@ -36,7 +18,7 @@ console.log(ship3.isSunk())
  */
 
 //MOVE THIS TO UI MODULE
-const rotateBtn = document.querySelector('[data-rotate-btn]');
+/* const rotateBtn = document.querySelector('[data-rotate-btn]');
 const shipContainer = document.querySelector('[data-ship-container]');
 let angle = 0;
 
@@ -47,4 +29,4 @@ function rotate() {
   console.log(playerBoard.getOrientation());
 }
 
-rotateBtn.addEventListener('click', rotate);
+rotateBtn.addEventListener('click', rotate); */

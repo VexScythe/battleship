@@ -6,6 +6,7 @@ const computerBoardContainer = document.querySelector('[data-computerboard-conta
 
 export function createGameUI() {
   function renderGameboard(gameboard) {
+    let count = 0;
     const gameboardContainer = document.createElement('div');
     gameboardContainer.classList.add('gameboard');
     for (let i = 0; i < gameboard.length; i++) {
@@ -13,6 +14,8 @@ export function createGameUI() {
       for (let j = 0; j < row.length; j++) {
         const cell = row[j];
         const cellDiv = document.createElement('div');
+        cellDiv.id = `${count}`;
+        count++;
         cellDiv.classList.add('cell');
         if (cell === 'X' || cell === 'O') {
           cellDiv.classList.add('attacked');

@@ -5,18 +5,8 @@ export function createGameboard() {
   const board = Array(boardSize)
     .fill(null)
     .map(() => Array(boardSize).fill(null));
-  const rotateBtn = document.querySelector('[data-rotate-btn]');
-  let orientation = 'horizontal';
 
-  rotateBtn.addEventListener('click', function () {
-    orientation = orientation === 'horizontal' ? 'vertical' : 'horizontal';
-  });
-
-  function getOrientation() {
-    return orientation;
-  }
-
-  function isValid(ship, row, col) {
+  function isValid(ship, row, col, orientation) {
     if (orientation === 'horizontal') {
       return col + ship.getShipHP() <= boardSize;
     } else if (orientation === 'vertical') {
@@ -25,7 +15,7 @@ export function createGameboard() {
     return false;
   }
 
-  function isTaken(row, col, ship) {
+  function isTaken(row, col, ship, orientation) {
     for (let i = 0; i < ship.getShipHP(); i++) {
       if (orientation === 'horizontal') {
         if (board[row][col + i]) {
@@ -40,8 +30,8 @@ export function createGameboard() {
     return false;
   }
 
-  function placeShip(ship, row, col) {
-    if (!isValid(ship, row, col) || isTaken(row, col, ship)) {
+  function placeShip(ship, row, col, orientation) {
+    if (!isValid(ship, row, col, orientation) || isTaken(row, col, ship, orientation)) {
       return false;
     }
     if (orientation === 'horizontal') {
@@ -54,19 +44,6 @@ export function createGameboard() {
       }
     }
     return true;
-  }
-
-  function placeShipAi(ship) {
-    let aiOrientation = Math.random() < 0.5 ? 'horizontal' : 'vertical';
-    let row, col;
-    if (aiOrientation === 'horizontal') {
-      row = Math.floor(Math.random() * boardSize);
-      col = Math.floor(Math.random() * (boardSize - ship.getShipHP() + 1));
-    } else if (aiOrientation === 'vertical') {
-      row = Math.floor(Math.random() * (boardSize - ship.getShipHP() + 1));
-      col = Math.floor(Math.random() * boardSize);
-    }
-    return placeShip(ship, row, col);
   }
 
   function isHitted(cell) {
@@ -108,8 +85,6 @@ export function createGameboard() {
   return {
     board,
     placeShip,
-    placeShipAi,
-    getOrientation,
     receiveAttack,
     allSunk,
   };

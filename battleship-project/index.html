@@ -23,11 +23,16 @@
         <div class="computer__board" data-computerboard-container></div>
       </div>
       <div class="ship__container" data-ship-container>
-        <div class="carrier__preview carrier" draggable="true"></div>
-        <div class="battleship__preview battleship" draggable="true"></div>
-        <div class="cruiser__preview cruiser" draggable="true"></div>
-        <div class="submarine__preview submarine" draggable="true"></div>
-        <div class="destroyer__preview destroyer" draggable="true"></div>
+        <div class="carrier__preview carrier"></div>
+        <div class="battleship__preview battleship"></div>
+        <div class="cruiser__preview cruiser"></div>
+        <div class="submarine__preview submarine"></div>
+        <div class="destroyer__preview destroyer"></div>
+      </div>
+      <div class="ship__placer">
+        <input type="number" class="input__coordinate" placeholder="X: 0/9" data-coordinate-x-input />
+        <input type="number" class="input__coordinate" placeholder="Y: 0/9" data-coordinate-y-input />
+        <button class="btn">PLACE</button>
       </div>
       <button class="btn" data-rotate-btn>ROTATE</button>
       <button class="btn" data-start-btn>START</button>
