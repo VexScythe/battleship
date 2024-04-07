@@ -1,4 +1,4 @@
-const createShip = require('./ship');
+const createShip = require('../ship');
 
 describe('createShip', () => {
   let myShip;
